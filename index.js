@@ -44,9 +44,7 @@ socket.on('maxVal', (newMaxVal) => {
 
 // Creating a random number supply chain
 setInterval(() => {
-  console.log("minVal:", minVal, "maxVal:", maxVal);
   const randomNumber = Math.floor(Math.random() * (maxVal - minVal + 1)) + minVal;
-  console.log(randomNumber);
   
   io.emit("randomNumber", randomNumber);
 }, 1100);
