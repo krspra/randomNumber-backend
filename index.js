@@ -18,8 +18,9 @@ const io = new Server(ourServer, {
 app.use(cors());
 
 // Starting the server
-ourServer.listen(3000, () => {
-  console.log("Server started at http://localhost:3000/");
+const PORT=process.env.PORT|| 3000
+ourServer.listen(PORT, () => {
+  console.log(`Server started at http://localhost:${PORT}/`);
 });
 
 // Working with WebSocket-----------------------------------------
@@ -31,11 +32,11 @@ let maxVal = 100;
 io.on('connection', (socket) => {
 
   socket.on('minVal', (newMinVal) => {
-    minVal = Number(newMinVal);  // Ensure the value is a number
+    minVal = Number(newMinVal);
 });
 
 socket.on('maxVal', (newMaxVal) => {
-    maxVal = Number(newMaxVal);  // Ensure the value is a number
+    maxVal = Number(newMaxVal); 
 });
 
 
